@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:CVPRTest.Helpers;assembly=CVPRTest"
+             x:Class="CVPRTest.Views.SpeakerPage" Title="{Binding Name}">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+    <helpers:BoolToIntConverter x:Key="BoolToIntConverter"/>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <ListView x:Name="messageList" ItemsSource="{Binding Messages}" RowHeight="70" HasUnevenRows="False"> 
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell> 
+              <ViewCell.View>
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Vertical" Grid.Column="{Binding IsSent, Converter={StaticResource BoolToIntConverter}}">
+                  <Label Text="{Binding Sender.Name}" FontAttributes="Bold"/>
+                  <Label Text="{Binding MessageText}" />
+                  <Label Text="{Binding MessageDateTime.DateTime, StringFormat='Time = {0:HH:mm}'} "/>
+                </StackLayout>
+                  </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <Editor Text="test" x:Name="editor" Keyboard="Chat"/>
+      <Button Text="Text a message" Command="{Binding SendMessageCommand}" CommandParameter="{Binding Source={x:Reference editor}, Path=Text}" />
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CVPRTest.Views.LoginPage" Title="Log In">
+  <ContentPage.Content>
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="15">
+     <Grid.RowDefinitions>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+     </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Label Text="Log In:" HorizontalOptions="Center" FontSize="25" Grid.Row="0" Grid.Column="1"/>
+      <Label Text="Login:" HorizontalOptions="Center" FontSize="20" Grid.Row="1" Grid.Column="0"/>
+      <Label Text="Password:" HorizontalOptions="Center" FontSize="20" Grid.Row="2" Grid.Column="0"/>
+      <Entry x:Name="logEntry" FontSize="20" HorizontalOptions="Fill"
+             Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Placeholder="Login"/>
+      <Entry x:Name="passEntry" FontSize="20" HorizontalOptions="Fill"
+             Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" IsPassword="True"
+             Placeholder="Password"/>
+      <Button Grid.Row="3" Grid.Column="1" HorizontalOptions="Fill" Text="Submit" Clicked="Submit"></Button>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

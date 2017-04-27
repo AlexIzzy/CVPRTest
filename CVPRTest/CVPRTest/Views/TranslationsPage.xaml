@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CVPRTest.Views.TranslationsPage">
+  <ContentPage.Content>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
+        <Button Text="Play/Pause" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" 
+                Command="{Binding PlayPauseCommand}" CommandParameter="{Binding Source={x:Reference UrlEntry}, Path=Text}" />
+        <Button Text="Stop" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                Command="{Binding StopCommand}"/>
+        <Entry x:Name="UrlEntry" Text="test_url"/>
+      </StackLayout>
+      <ListView x:Name="translationList" ItemsSource="{Binding Translations}" HasUnevenRows="True">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <StackLayout>
+                  <Label Text="{Binding Name}" FontSize="Large" />
+                  <Label Text="{Binding Url}" FontSize="Small" />
+                </StackLayout>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <!--  <StackLayout VerticalOptions="End" IsVisible="True">
+        <WebView Source="{Binding TranslationSource}"></WebView>
+    </StackLayout>-->
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

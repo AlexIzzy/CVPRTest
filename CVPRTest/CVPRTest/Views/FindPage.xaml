@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CVPRTest.Views.FindPage" Title="Find Contacts">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Horizontal">
+        <Entry x:Name="Entry" HorizontalOptions="FillAndExpand" Placeholder="Enter name"/>
+        <Button Text="Find!" Command="{Binding FindContactsCommand}" CommandParameter="{Binding Source={x:Reference Entry}, Path=Text}"/>
+      </StackLayout>
+  <ListView x:Name="ContactList" ItemsSource="{Binding MatchedVisitors}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}" RowHeight="50">
+    <ListView.ItemTemplate>
+    <DataTemplate>
+      <ViewCell>
+        <ViewCell.View>
+          <StackLayout>
+            <Label Text="{Binding Name}" FontSize="Medium" />
+            <Label Text="{Binding Email}" FontSize="Small" />
+          </StackLayout>
+        </ViewCell.View>
+      </ViewCell>
+    </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+    </StackLayout>
+</ContentPage>
