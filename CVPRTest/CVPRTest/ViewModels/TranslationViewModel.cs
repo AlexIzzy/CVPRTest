@@ -16,11 +16,22 @@ namespace CVPRTest.ViewModels
     public class TranslationsViewModel : BaseViewModel
     {
         private readonly Realm _realm = RealmHelper.GetRealm();
-        private ObservableCollection<Translation> _translations;
-        //private Translation _selectedTranslation;
+        private Translation _selectedTranslation;
 
         public string TranslationSource { get; set; }
         public ObservableCollection<Translation> Translations { get; set; }
+        public Translation SelectedTranslation
+        {
+            get { return _selectedTranslation; }
+            set
+            {
+                if (_selectedTranslation == value) return;
+                var tempTranslation = value;
+                _selectedTranslation = null;
+                OnPropertyChanged(nameof(SelectedTranslation));
+                PlayPause(tempTranslation.Url);
+            }
+        }
         public TranslationsViewModel()
         {
             var queryResult = _realm.All<Translation>();

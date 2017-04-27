@@ -20,15 +20,14 @@ namespace CVPRTest.ViewModels
         private Visitor _selectedSpeaker;
         public ObservableCollection<Visitor> AddedVisitors { get; set; }
 
-        public string LogName { get; set; }
         public Visitor EnteredVisitor { get; set; }
 
         public VisitorListViewModel(Visitor enteredVisitor)
         {
-            LogName = enteredVisitor.Name;
             EnteredVisitor = enteredVisitor;
             AddedVisitors = new ObservableCollection<Visitor>(enteredVisitor.AddedVisitors);
             FindContactsCommand = new Command(FindContacts);
+            GetTranslationsCommand = new Command(GetTranslations);
         }
 
         public Visitor SelectedSpeaker
@@ -48,6 +47,12 @@ namespace CVPRTest.ViewModels
         private void FindContacts()
         {
             App.NavigationService.NavigateTo(Locator.FindPage, new object[] { EnteredVisitor, this});
+        }
+        public  ICommand GetTranslationsCommand { get; protected set; }
+
+        private void GetTranslations()
+        {
+            App.NavigationService.NavigateTo(Locator.TranslationsPage, new object[] {new TranslationsViewModel()});
         }
     }
 }

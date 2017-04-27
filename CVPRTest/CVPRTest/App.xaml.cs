@@ -25,6 +25,7 @@ namespace CVPRTest
              NavigationService.Configure(Locator.TranslationsPage, typeof(TranslationsPage));
              NavigationService.Configure(Locator.VisitorListPage, typeof(VisitorListPage));
              NavigationService.Configure(Locator.VisitorPage, typeof(SpeakerPage));
+             NavigationService.Configure(Locator.MainAppPage, typeof(MainAppPage));
 
              var startPage = new NavigationPage(new LoginPage());
              NavigationService.Initialize(startPage);

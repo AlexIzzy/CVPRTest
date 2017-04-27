@@ -9,13 +9,11 @@ using Xamarin.Forms;
 
 namespace CVPRTest.Views
 {
-    public partial class VisitorListPage : ContentPage
+    public partial class MainAppPage : TabbedPage
     {
-        public VisitorListPage(Visitor visitor)
+        public MainAppPage(Visitor visitor, TranslationsViewModel translationsVm)
         {
             InitializeComponent();
-            var visitorVm = new VisitorListViewModel(visitor);
-            BindingContext = visitorVm;
         }
     }
 }

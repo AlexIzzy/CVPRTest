@@ -20,7 +20,8 @@ namespace CVPRTest.Views
                                                                    && x.Password.Equals(passEntry.Text.Trim()));
             if (visitor != null)
             {
-                App.NavigationService.NavigateTo(Locator.VisitorListPage, new object[] {visitor});
+                App.NavigationService.NavigateTo(Locator.VisitorListPage, new object[] { visitor });
+                //App.NavigationService.NavigateTo(Locator.MainAppPage, new object[] {visitor, new TranslationsViewModel()});
             }
 
             else

@@ -13,5 +13,6 @@ namespace CVPRTest.Helpers
         public const string TranslationsPage = "TranslationsPage";
         public const string VisitorListPage = "VisitorListPage";
         public const string VisitorPage = "VisitorPage";
+        public const string MainAppPage = "MainAppPage";
     }
 }

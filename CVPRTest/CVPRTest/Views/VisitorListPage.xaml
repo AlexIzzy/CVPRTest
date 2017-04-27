@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:CVPRTest.ViewModels;assembly=CVPRTest"
              xmlns:models="clr-namespace:CVPRTest.Models;assembly=CVPRTest"
-             x:Class="CVPRTest.Views.VisitorListPage" Title="{Binding LogName}">
+             x:Class="CVPRTest.Views.VisitorListPage" Title="Contacts">
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Add contact" Command="{Binding FindContactsCommand}"/>
+    <ToolbarItem Text="Translations" Command="{Binding GetTranslationsCommand}"/>
   </ContentPage.ToolbarItems>
     <StackLayout>
     <ListView x:Name="booksList" ItemsSource="{Binding AddedVisitors}"
