@@ -19,17 +19,17 @@ namespace CVPRTest
         public App()
         {
             InitializeComponent();
-             NavigationService = new NavigationService();
-             NavigationService.Configure(Locator.LoginPage, typeof(LoginPage));
-             NavigationService.Configure(Locator.FindPage, typeof(FindPage));
-             NavigationService.Configure(Locator.TranslationsPage, typeof(TranslationsPage));
-             NavigationService.Configure(Locator.VisitorListPage, typeof(VisitorListPage));
-             NavigationService.Configure(Locator.VisitorPage, typeof(SpeakerPage));
-             NavigationService.Configure(Locator.MainAppPage, typeof(MainAppPage));
+            NavigationService = new NavigationService();
+            NavigationService.Configure(Locator.LoginPage, typeof(LoginPage));
+            NavigationService.Configure(Locator.FindPage, typeof(FindPage));
+            NavigationService.Configure(Locator.TranslationsPage, typeof(TranslationsPage));
+            NavigationService.Configure(Locator.VisitorListPage, typeof(VisitorListPage));
+            NavigationService.Configure(Locator.VisitorPage, typeof(SpeakerPage));
+            NavigationService.Configure(Locator.MainAppPage, typeof(MainAppPage));
 
-             var startPage = new NavigationPage(new LoginPage());
-             NavigationService.Initialize(startPage);
-             MainPage = startPage;
+            var startPage = new NavigationPage(new LoginPage());
+            NavigationService.Initialize(startPage);
+            MainPage = startPage;
         }
 
 

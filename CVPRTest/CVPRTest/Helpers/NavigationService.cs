@@ -58,7 +58,6 @@ namespace CVPRTest.Helpers
                                 {
                                     var p = c.GetParameters();
                                     return !p.Where((t, i) => t.ParameterType != args[i].GetType()).Any();
-                                    //return p.All(parameterInfo => args.All(argument => parameterInfo.ParameterType == argument.GetType()));
                                 });
                         parameters = args;
                     }

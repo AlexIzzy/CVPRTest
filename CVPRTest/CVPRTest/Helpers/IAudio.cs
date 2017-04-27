@@ -8,7 +8,7 @@ namespace CVPRTest.Helpers
 {
     public interface IAudio
     {
-        void Play_Pause(string url);
+        void Play(string url);
         void Stop(bool val);
     }
 }

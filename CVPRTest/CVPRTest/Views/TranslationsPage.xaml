@@ -5,11 +5,8 @@
   <ContentPage.Content>
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
       <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
-        <Button Text="Play/Pause" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" 
-                Command="{Binding PlayPauseCommand}" CommandParameter="{Binding Source={x:Reference UrlEntry}, Path=Text}" />
-        <Button Text="Stop" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+        <Button Text="Stop" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                 Command="{Binding StopCommand}"/>
-        <Entry x:Name="UrlEntry" Text="test_url"/>
       </StackLayout>
       <ListView x:Name="translationList" ItemsSource="{Binding Translations}" SelectedItem="{Binding SelectedTranslation, Mode=TwoWay}" HasUnevenRows="True">
         <ListView.ItemTemplate>
@@ -25,9 +22,6 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-      <!--  <StackLayout VerticalOptions="End" IsVisible="True">
-        <WebView Source="{Binding TranslationSource}"></WebView>
-    </StackLayout>-->
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

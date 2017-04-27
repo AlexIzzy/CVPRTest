@@ -29,7 +29,7 @@ namespace CVPRTest.ViewModels
                 var tempTranslation = value;
                 _selectedTranslation = null;
                 OnPropertyChanged(nameof(SelectedTranslation));
-                PlayPause(tempTranslation.Url);
+                DependencyService.Get<IAudio>().Play(tempTranslation.Url);
             }
         }
         public TranslationsViewModel()
@@ -37,15 +37,9 @@ namespace CVPRTest.ViewModels
             var queryResult = _realm.All<Translation>();
             Translations = new ObservableCollection<Translation>(queryResult);
             TranslationSource = Translations[0].Url;
-            PlayPauseCommand = new Command<string>(PlayPause);
             StopCommand = new Command(Stop);
         }
-        public ICommand PlayPauseCommand { get; protected set; }
 
-        private void PlayPause(string url)
-        {
-            DependencyService.Get<IAudio>().Play_Pause(url);
-        }
         public ICommand StopCommand { get; protected set; }
 
         private void Stop()
